@@ -1,0 +1,13 @@
+*.o
+core.*
+epoll-ping-pong
+epoll-client
+simple-http-client
+distributed-client
+httpd
+keepalive-clients
+node_modules
+timewait_server
+timewait_client
+server_delay
+client_delay
