@@ -7,5 +7,9 @@ RUN ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rew
 RUN mkdir -p /var/run/apache2; mkdir -p /var/lock/apache2
 RUN update-rc.d apache2 disable
 COPY 000-default.conf /etc/apache2/sites-available/
+COPY choose_mpm.sh /bin/
+RUN chmod a+rx /bin/choose_mpm.sh
+COPY start_apache.sh /bin/
+RUN chmod a+rx /bin/start_apache.sh
 EXPOSE 80
-CMD . /etc/apache2/envvars; /usr/sbin/apache2 -DFOREGROUND
+CMD /bin/bash
