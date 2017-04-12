@@ -13,6 +13,7 @@ RUN rm /etc/apache2/mods-enabled/mpm*
 RUN /bin/choose_mpm.sh prefork
 COPY start_apache.sh /bin/
 RUN chmod a+rx /bin/start_apache.sh
+COPY limits.conf /etc/security/
 WORKDIR /etc/apache2
 EXPOSE 80
 CMD /bin/bash
