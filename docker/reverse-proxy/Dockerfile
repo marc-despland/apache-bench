@@ -9,6 +9,8 @@ RUN update-rc.d apache2 disable
 COPY 000-default.conf /etc/apache2/sites-available/
 COPY choose_mpm.sh /bin/
 RUN chmod a+rx /bin/choose_mpm.sh
+RUN rm /etc/apache2/mods-enabled/mpm*
+RUN /bin/choose_mpm.sh prefork
 COPY start_apache.sh /bin/
 RUN chmod a+rx /bin/start_apache.sh
 WORKDIR /etc/apache2
